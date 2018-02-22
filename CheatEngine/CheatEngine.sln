@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheatEngine", "CheatEngine\CheatEngine.csproj", "{ECCEFFBC-709D-453E-972B-FC259D16B16E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECCEFFBC-709D-453E-972B-FC259D16B16E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECCEFFBC-709D-453E-972B-FC259D16B16E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECCEFFBC-709D-453E-972B-FC259D16B16E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECCEFFBC-709D-453E-972B-FC259D16B16E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B458875-3886-4E5F-BA19-7C3AE35B743A}
+	EndGlobalSection
+EndGlobal
