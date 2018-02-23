@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectProcess));
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -37,20 +38,27 @@
             this.listBox1.Font = new System.Drawing.Font("Helvetica", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 27;
-            this.listBox1.Items.AddRange(new object[] {
-            "Item A",
-            "Item B"});
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(697, 328);
             this.listBox1.TabIndex = 0;
-           this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(608, 346);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 33);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Refresh";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // SelectProcess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 368);
+            this.ClientSize = new System.Drawing.Size(721, 387);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -58,6 +66,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Process";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.SelectProcess_Load);
             this.ResumeLayout(false);
 
         }
@@ -65,5 +74,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
