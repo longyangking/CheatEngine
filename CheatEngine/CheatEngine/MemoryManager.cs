@@ -16,22 +16,22 @@ namespace CheatEngine
             return ps;
         }
 
-        const int PROCESS_QUERY_INFORMATION = 0x0400;
-        const int MEM_COMMIT = 0x00001000;
-        const int PAGE_READWRITE = 0x04;
-        const int PROCESS_WM_READ = 0x0010;
+        public const int PROCESS_QUERY_INFORMATION = 0x0400;
+        public const int MEM_COMMIT = 0x00001000;
+        public const int PAGE_READWRITE = 0x04;
+        public const int PROCESS_WM_READ = 0x0010;
+
+        [DllImport("kernel32.dll")]
+        public static extern void GetSystemInfo(out SYSTEM_INFO lpSystemInfo);
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        static extern int VirtualQueryEx
+        public static extern int VirtualQueryEx
             (
                 IntPtr hProcess,
                 IntPtr lpAddress, 
                 out MEMORY_BASIC_INFORMATION lpBuffer, 
-                uint dwLength
+                int dwLength
             );
-
-        [DllImport("kernel32.dll")]
-        static extern void GetSystemInfo(out SYSTEM_INFO lpSystemInfo);
 
         [DllImportAttribute("kernel32.dll", EntryPoint = "ReadProcessMemory")]
         public static extern bool ReadProcessMemory
@@ -94,6 +94,21 @@ namespace CheatEngine
             public uint allocationGranularity;
             public ushort processorLevel;
             public ushort processorRevision;
+        }
+
+        public static int SizeOf(object obj)
+        {
+            return Marshal.SizeOf(obj);
+        }
+
+        public static IntPtr GetAddressOfArray(Array array)
+        {
+            return Marshal.UnsafeAddrOfPinnedArrayElement(array, 0);
+        }
+
+        public static int ReadBytes2Int(IntPtr byteaddr)
+        {
+            return Marshal.ReadInt32(byteaddr);
         }
     }
 }

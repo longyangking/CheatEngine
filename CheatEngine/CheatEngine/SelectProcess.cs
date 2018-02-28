@@ -14,8 +14,10 @@ namespace CheatEngine
     public partial class SelectProcess : Form
     {
         public Boolean status = false;
-        public String selectedprocess;
+        public int selectedprocessindex;
+        public Process[] processes;
         public MainWindow parent;
+
         public SelectProcess(MainWindow mainwindow)
         {
             InitializeComponent();
@@ -25,7 +27,8 @@ namespace CheatEngine
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             //MessageBox.Show(listBox1.SelectedItem.ToString());
-            parent.setSelectedProcess(listBox1.SelectedItem.ToString());
+            selectedprocessindex = listBox1.SelectedIndex;
+            parent.setSelectedProcess(processes[selectedprocessindex]);
             status = true;
             this.Close();
         }
@@ -34,11 +37,25 @@ namespace CheatEngine
         {
             listBox1.Items.Clear();
             Process[] ps = MemoryManager.GetProcesses();
+
+            int length = 0;
             foreach (Process p in ps)
             {
-                //listBox1.Items.Add(p.ProcessName);
-                if (p.MainWindowTitle != ""){ //The process with main window handle
-                    listBox1.Items.Add(p.ProcessName);
+                if (p.MainWindowTitle != "") 
+                {
+                    length += 1;
+                }
+            }
+
+            processes = new Process[length];
+            int index = 0;
+            foreach (Process p in ps)
+            {
+                if (p.MainWindowTitle != "") //The process with main window handle
+                {
+                    processes[index] = p;
+                    listBox1.Items.Add(p.ProcessName + " " + p.Id);
+                    index += 1;
                 }            
             }
         }

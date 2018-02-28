@@ -1,0 +1,2 @@
+﻿1. Add sub-process to handle the memory search work
+2. Master Widget and Control
